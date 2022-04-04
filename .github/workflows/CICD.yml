@@ -1,4 +1,4 @@
-name: CI + CD demo pipeline
+name: CI + CD pipeline with Super Linter
 
 # Define when the workflow should run. On a push to main, a PR to main or manually with workflow_dispatch
 
@@ -16,6 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
+      - name: Lint Code Base
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: true
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Compile
         run: echo Imagine we are compling our code here!
@@ -53,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Production
-      url: 'http://www.myapp.com'
+      url: 'https://luziandrade.github.io/testdevop2./'
     steps: 
       - name: Deploy
-        run: echo The app is live at http://www.myapp.com
+        run: echo The app is live at https://luziandrade.github.io/testdevop2./
