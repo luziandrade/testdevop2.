@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: Production
-      url: 'http://www.myapp.com'
+      url: 'https://luziandrade.github.io/testdevop2./'
     steps: 
       - name: Deploy
-        run: echo The app is live at http://www.myapp.com
+        run: echo The app is live at https://luziandrade.github.io/testdevop2./
